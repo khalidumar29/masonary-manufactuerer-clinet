@@ -7,6 +7,7 @@ import Purchase from "./Components/Purchase/Purchase";
 import MyProtfolio from "./Pages/MyProtfolio/MyProtfolio";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/signUp' element={<SignUp />}></Route>
         <Route path='/myprotfolio' element={<MyProtfolio />}></Route>
         <Route path='/purchase' element={<Purchase />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>
     </div>
