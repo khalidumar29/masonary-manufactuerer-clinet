@@ -10,6 +10,9 @@ const Navbar = () => {
       <li>
         <Link to={"/myprotfolio"}>Protfolio</Link>
       </li>
+      <li>
+        <Link to={"/login"}>Log In</Link>
+      </li>
     </>
   );
   return (
