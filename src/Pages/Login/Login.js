@@ -1,19 +1,22 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div class="bg-[url('/src/assets/images/bg-for-login.jpg')] hero lg:min-h-[90vh] md:min-h-[90vh] min-h-[70vh]">
       <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div class="card-body flex flex-col w-full border-opacity-50 lg:ml-[-7px] lg:w-[25rem] md:w-[25rem] w-[21.5rem]">
+          <div class="card-body flex flex-col border-opacity-50 lg:ml-[-7px] lg:w-[25rem] md:w-[25rem] w-[21.5rem]">
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="text-2xl text-primary">Login</h1>
@@ -50,6 +53,17 @@ const Login = () => {
                   <button type="submit" class="btn btn-primary">
                     Login
                   </button>
+                  <h1 className="text-sm text-center mt-2">
+                    new to mm?{" "}
+                    <span
+                      onClick={() => {
+                        navigate("/signUp");
+                      }}
+                      className="text-primary cursor-pointer"
+                    >
+                      Create new account
+                    </span>
+                  </h1>
                 </div>
               </form>
             </div>
