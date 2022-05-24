@@ -11,6 +11,9 @@ const Navbar = () => {
         <Link to={"/myprotfolio"}>Protfolio</Link>
       </li>
       <li>
+        <Link to={"/blogs"}>Blogs</Link>
+      </li>
+      <li>
         <Link to={"/login"}>Log In</Link>
       </li>
     </>
