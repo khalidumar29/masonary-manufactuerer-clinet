@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
@@ -17,7 +17,7 @@ const SignUp = () => {
   const [updateProfile, updating, error] = useUpdateProfile(auth);
   const {
     register,
-    getValues,
+
     formState: { errors },
     handleSubmit,
   } = useForm();
@@ -30,11 +30,17 @@ const SignUp = () => {
       console.log(confirmPasswordError);
     }
   };
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  if (gUser || eUser) {
+    navigate(from, { replace: true });
+  }
+
   if (eLoading || gLoading || updating) {
     return <Loading />;
   }
   let signInError;
-  if (eUser || gUser || error) {
+  if (eError || gError || error) {
     signInError = (
       <p className='text-error'>
         {eUser?.message || gUser?.message || eError?.message}
