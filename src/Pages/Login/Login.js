@@ -1,17 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 const Login = () => {
   const navigate = useNavigate();
+  let passwordResetError;
+  const [signInWithEmailAndPassword, eUser, eLoading, eError] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [sendPasswordResetEmail, sending, uError] =
+    useSendPasswordResetEmail(auth);
   const {
     register,
+    getValues,
     formState: { errors },
     handleSubmit,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
+
+  if (eLoading || gLoading || sending) {
+    return <Loading />;
+  }
+
+  let logInError;
+  if (eError || gError || uError) {
+    logInError = (
+      <p className="text-error">
+        {eError?.message || gError?.message || uError.message}
+      </p>
+    );
+  }
   return (
     <div class="bg-[url('/src/assets/images/bg-for-login.jpg')] hero lg:min-h-[90vh] md:min-h-[90vh] min-h-[70vh]">
       <div class="hero-content flex-col lg:flex-row-reverse">
@@ -25,26 +51,79 @@ const Login = () => {
                     <span class="label-text">Email</span>
                   </label>
                   <input
-                    {...register("email")}
+                    {...register("email", {
+                      required: { value: true, message: "email is rquired" },
+                      pattern: {
+                        value:
+                          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        message: "provid a valid email",
+                      },
+                    })}
                     type="email"
                     placeholder="email"
                     class="input input-bordered"
                     required
                   />
+                  <label htmlFor="email" className="label">
+                    {errors.email?.type === "required" && (
+                      <>
+                        <span className="label-text-alt text-error">
+                          {errors.email.message}
+                        </span>
+                      </>
+                    )}
+                    {errors.email?.type === "pattern" && (
+                      <span className="label-text-alt text-error">
+                        {errors.email.message}
+                      </span>
+                    )}
+                  </label>
+                  {passwordResetError}
                 </div>
                 <div class="form-control">
                   <label class="label">
                     <span class="label-text">Password</span>
                   </label>
                   <input
-                    {...register("password")}
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "password is required",
+                      },
+                      minLength: {
+                        value: 8,
+                        message: "password must have at least 8 charcter",
+                      },
+                    })}
                     type="password"
                     placeholder="password"
                     class="input input-bordered"
                     required
                   />
+                  <label htmlFor="password" className="label">
+                    {errors.password?.type === "required" && (
+                      <>
+                        <span className="label-text-alt text-error">
+                          {errors.password.message}
+                        </span>
+                      </>
+                    )}
+                    {errors.password?.type === "minLength" && (
+                      <span className="label-text-alt text-error">
+                        {errors.password.message}
+                      </span>
+                    )}
+                  </label>
+                  {logInError}
                   <label class="label">
-                    <Link to={""} class="label-text-alt link link-hover">
+                    <Link
+                      onClick={() => {
+                        const email = getValues("email");
+                        sendPasswordResetEmail(email);
+                      }}
+                      to={""}
+                      class="label-text-alt link link-hover"
+                    >
                       Forgot password?
                     </Link>
                   </label>
@@ -68,7 +147,12 @@ const Login = () => {
               </form>
             </div>
             <div class="divider ">OR</div>
-            <button className="btn btn-outline btn-gost capitalize">
+            <button
+              onClick={() => {
+                signInWithGoogle(register.email);
+              }}
+              className="btn btn-outline btn-gost capitalize"
+            >
               continue with google
             </button>
           </div>

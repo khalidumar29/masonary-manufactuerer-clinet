@@ -1,17 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 const SignUp = () => {
   const navigate = useNavigate();
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const [createUserWithEmailAndPassword, eUser, eLoading, eError] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [updateProfile, updating, error] = useUpdateProfile(auth);
   const {
     register,
+    getValues,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    if (data.password === data.confirmpassword) {
+      await createUserWithEmailAndPassword(data.email, data.password);
+      await updateProfile({ displayName: data.name });
+    } else if (data.password !== data.confirmpassword) {
+      setConfirmPasswordError(`password didn't match`);
+      console.log(confirmPasswordError);
+    }
   };
+  if (eLoading || gLoading || updating) {
+    return <Loading />;
+  }
+  let signInError;
+  if (eUser || gUser || error) {
+    signInError = (
+      <p className='text-error'>
+        {eUser?.message || gUser?.message || eError?.message}
+      </p>
+    );
+  }
   return (
     <div class="bg-[url('/src/assets/images/bg-for-login.jpg')] hero lg:min-h-[90vh] md:min-h-[90vh] min-h-[70vh]">
       <div class='hero-content flex-col lg:flex-row-reverse'>
@@ -25,36 +54,86 @@ const SignUp = () => {
                     <span class='label-text'>Name</span>
                   </label>
                   <input
-                    {...register("name")}
+                    {...register("name", {
+                      required: { value: true, message: "name is required" },
+                    })}
                     type='text'
                     placeholder='name'
                     class='input input-bordered'
                     required
                   />
+                  <label htmlFor='name' className='label'>
+                    {errors.name?.type === "required" && (
+                      <>
+                        <span>{errors.name.message}</span>
+                      </>
+                    )}
+                  </label>
                 </div>
                 <div class='form-control'>
                   <label class='label'>
                     <span class='label-text'>Email</span>
                   </label>
                   <input
-                    {...register("email")}
+                    {...register("email", {
+                      required: {
+                        value: true,
+                        message: "email is required",
+                      },
+                      pattern: {
+                        value:
+                          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        message: "provid a valid email",
+                      },
+                    })}
                     type='email'
                     placeholder='email'
                     class='input input-bordered'
                     required
                   />
+                  <label htmlFor='label'>
+                    {errors.email?.type === "required" && (
+                      <>
+                        <span>{errors.email.message}</span>
+                      </>
+                    )}
+                  </label>
                 </div>
                 <div class='form-control'>
                   <label class='label'>
                     <span class='label-text'>Password</span>
                   </label>
                   <input
-                    {...register("password")}
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "password is required",
+                      },
+                      minLength: {
+                        value: 8,
+                        message: "password must have 8 digit",
+                      },
+                    })}
                     type='password'
                     placeholder='password'
                     class='input input-bordered'
                     required
                   />
+                  {signInError}
+                  {errors.password?.type === "required" && (
+                    <>
+                      <span className='label-text-alt text-error'>
+                        {errors.password.message}
+                      </span>
+                    </>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <>
+                      <span className='label-text-alt text-error'>
+                        {errors.password.message}
+                      </span>
+                    </>
+                  )}
                 </div>
                 <div class='form-control'>
                   <label class='label'>
@@ -67,6 +146,13 @@ const SignUp = () => {
                     class='input input-bordered'
                     required
                   />
+                  {confirmPasswordError && (
+                    <>
+                      <label className='text-error'>
+                        {confirmPasswordError}
+                      </label>
+                    </>
+                  )}
                 </div>
                 <div class='form-control mt-6'>
                   <button type='submit' class='btn btn-primary'>
@@ -87,7 +173,10 @@ const SignUp = () => {
               </form>
             </div>
             <div class='divider '>OR</div>
-            <button className='btn btn-outline btn-gost capitalize'>
+            <button
+              onClick={() => signInWithGoogle()}
+              className='btn btn-outline btn-gost capitalize'
+            >
               continue with google
             </button>
           </div>
