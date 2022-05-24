@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <div className='navbar bg-base-100 justify-between'>
       <Link to='/' className='btn btn-ghost normal-case text-xl'>
-        daisyUI
+        masonry Marshaltown
       </Link>
       <div className='navbar-end'>
         <div className='dropdown dropdown-end sm:ml-36'>
