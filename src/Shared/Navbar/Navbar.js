@@ -11,9 +11,29 @@ const Navbar = () => {
       <li>
         <Link to={"/"}>Home</Link>
       </li>
+      {user && (
+        <li>
+          <Link to={"/myorder"}>My Order</Link>
+        </li>
+      )}
+      {user && (
+        <li>
+          <Link to={"/addAreview"}>Add A Review</Link>
+        </li>
+      )}
       <li>
         <Link to={"/myprotfolio"}>Protfolio</Link>
       </li>
+      {user && (
+        <li>
+          <Link to={"/dashboard"}>Dashboard</Link>
+        </li>
+      )}
+      {user && (
+        <li>
+          <Link to={"/myprofile"}>My Profile</Link>
+        </li>
+      )}
       <li>
         <Link to={"/blogs"}>Blogs</Link>
       </li>
@@ -35,7 +55,7 @@ const Navbar = () => {
       <Link to='/' className='btn btn-ghost normal-case text-xl'>
         masonry Marshaltown
       </Link>
-      <div className='navbar-end'>
+      <div className='justify-end'>
         <div className='dropdown dropdown-end sm:ml-36'>
           <label tabIndex='0' className='btn btn-ghost lg:hidden'>
             <svg
@@ -61,7 +81,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div className='navbar-end hidden lg:flex'>
+      <div className='justify-end hidden lg:flex'>
         <ul className='menu menu-horizontal p-0'>{menuElements}</ul>
       </div>
     </div>
