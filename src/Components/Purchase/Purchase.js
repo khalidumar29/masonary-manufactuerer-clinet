@@ -17,9 +17,12 @@ const Purchase = () => {
   const {
     register,
     handleSubmit,
+    onBlur,
+    ref,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {};
+  console.log();
   return (
     <div>
       <p className='cursor-pointer' onClick={handleName}>
@@ -63,7 +66,12 @@ const Purchase = () => {
                 <label htmlFor=''>Order Quantity</label>{" "}
                 <input
                   class='input input-bordered w-full max-w-xs'
-                  {...register("orderQuantity", { required: true })}
+                  {...register("orderQuantity", {
+                    onBlur: (e) => console.log(e),
+                  })}
+                  defaultValue={minQuantity}
+                  onBlur={onBlur}
+                  ref={ref}
                 />
                 {errors.phone && (
                   <>
