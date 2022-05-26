@@ -8,6 +8,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import useToken from "../../Hooks/useToken/useToken";
 const SignUp = () => {
   const navigate = useNavigate();
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
@@ -15,6 +16,7 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [updateProfile, updating, error] = useUpdateProfile(auth);
+  const [token] = useToken(gUser || eUser);
   const {
     register,
 
@@ -32,7 +34,7 @@ const SignUp = () => {
   };
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  if (gUser || eUser) {
+  if (token) {
     navigate(from, { replace: true });
   }
 
@@ -48,16 +50,16 @@ const SignUp = () => {
     );
   }
   return (
-    <div class="bg-[url('/src/assets/images/bg-for-login.jpg')] hero lg:min-h-[90vh] md:min-h-[90vh] min-h-[70vh]">
-      <div class='hero-content flex-col lg:flex-row-reverse'>
-        <div class='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
-          <div class='card-body flex flex-col border-opacity-50 lg:ml-[-7px] lg:w-[25rem] md:w-[25rem] w-[21.5rem]'>
+    <div className="bg-[url('/src/assets/images/bg-for-login.jpg')] hero lg:min-h-[90vh] md:min-h-[90vh] min-h-[70vh]">
+      <div className='hero-content flex-col lg:flex-row-reverse'>
+        <div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
+          <div className='card-body flex flex-col border-opacity-50 lg:ml-[-7px] lg:w-[25rem] md:w-[25rem] w-[21.5rem]'>
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h1 className='text-2xl text-primary'>Sign Up</h1>
-                <div class='form-control'>
-                  <label class='label'>
-                    <span class='label-text'>Name</span>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Name</span>
                   </label>
                   <input
                     {...register("name", {
@@ -65,7 +67,7 @@ const SignUp = () => {
                     })}
                     type='text'
                     placeholder='name'
-                    class='input input-bordered'
+                    className='input input-bordered'
                     required
                   />
                   <label htmlFor='name' className='label'>
@@ -76,9 +78,9 @@ const SignUp = () => {
                     )}
                   </label>
                 </div>
-                <div class='form-control'>
-                  <label class='label'>
-                    <span class='label-text'>Email</span>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Email</span>
                   </label>
                   <input
                     {...register("email", {
@@ -94,7 +96,7 @@ const SignUp = () => {
                     })}
                     type='email'
                     placeholder='email'
-                    class='input input-bordered'
+                    className='input input-bordered'
                     required
                   />
                   <label htmlFor='label'>
@@ -105,9 +107,9 @@ const SignUp = () => {
                     )}
                   </label>
                 </div>
-                <div class='form-control'>
-                  <label class='label'>
-                    <span class='label-text'>Password</span>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Password</span>
                   </label>
                   <input
                     {...register("password", {
@@ -122,7 +124,7 @@ const SignUp = () => {
                     })}
                     type='password'
                     placeholder='password'
-                    class='input input-bordered'
+                    className='input input-bordered'
                     required
                   />
                   {signInError}
@@ -141,15 +143,15 @@ const SignUp = () => {
                     </>
                   )}
                 </div>
-                <div class='form-control'>
-                  <label class='label'>
-                    <span class='label-text'>Confirm Password</span>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Confirm Password</span>
                   </label>
                   <input
                     {...register("confirmpassword")}
                     type='password'
                     placeholder='confirm password'
-                    class='input input-bordered'
+                    className='input input-bordered'
                     required
                   />
                   {confirmPasswordError && (
@@ -160,8 +162,8 @@ const SignUp = () => {
                     </>
                   )}
                 </div>
-                <div class='form-control mt-6'>
-                  <button type='submit' class='btn btn-primary'>
+                <div className='form-control mt-6'>
+                  <button type='submit' className='btn btn-primary'>
                     Login
                   </button>
                   <h1 className='text-sm text-center mt-2'>
@@ -178,7 +180,7 @@ const SignUp = () => {
                 </div>
               </form>
             </div>
-            <div class='divider '>OR</div>
+            <div className='divider '>OR</div>
             <button
               onClick={() => signInWithGoogle()}
               className='btn btn-outline btn-gost capitalize'

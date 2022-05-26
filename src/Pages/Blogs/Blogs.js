@@ -12,12 +12,12 @@ const Blogs = () => {
   return (
     <div className="lg:mx-6 md:mx-6">
       {/* question 1 */}
-      <div class=" collapse rounded border border-base-300 bg-base-100 my-2">
+      <div className=" collapse rounded border border-base-300 bg-base-100 my-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           How will you improve the performance of a React Application?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <ol className="list-decimal ml-6">
             <li>Keeping component state local where necessary.</li>
             <li>
@@ -33,12 +33,12 @@ const Blogs = () => {
         </div>
       </div>
       {/* question 2 */}
-      <div class=" collapse rounded border border-base-300 bg-base-100 my-2">
+      <div className=" collapse rounded border border-base-300 bg-base-100 my-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           What are the different ways to manage a state in a React application?{" "}
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className="capitalize">the four kinds of react state to manage</p>
           <ol className="list-decimal ml-6 capitalize">
             <li>Local state</li>
@@ -49,12 +49,12 @@ const Blogs = () => {
         </div>
       </div>
       {/* question 3 */}
-      <div class=" collapse rounded border border-base-300 bg-base-100 my-2">
+      <div className=" collapse rounded border border-base-300 bg-base-100 my-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           How does prototypical inheritance work?{" "}
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className="capitalize">
             The Prototypal Inheritance is a feature in javascript used to add
             methods and properties in objects. It is a method by which an object
@@ -65,24 +65,24 @@ const Blogs = () => {
         </div>
       </div>
       {/* question 4 */}
-      <div class=" collapse rounded border border-base-300 bg-base-100 my-2">
+      <div className=" collapse rounded border border-base-300 bg-base-100 my-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           You have an array of products. Each object has a name, price,
           description, etc. How will you implement a search to find products by
           name?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className="capitalize">{code}</p>
         </div>
       </div>
       {/* question 5 */}
-      <div class=" collapse rounded border border-base-300 bg-base-100 my-2">
+      <div className=" collapse rounded border border-base-300 bg-base-100 my-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           What is a unit test? Why should write unit tests?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className="capitalize">
             Unit tests are typically automated tests written and run by software
             developers to ensure that a section of an application (known as the

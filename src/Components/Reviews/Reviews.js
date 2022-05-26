@@ -5,11 +5,11 @@ const Reviews = () => {
     <div className='text-center  py-10'>
       <h1 className='pb-10 text-3xl'>customer reviews</h1>
       <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6'>
-        <div class='card card-compact lg:w-96 md:w-96 w-[21.5rem] bg-base-100 shadow-xl'>
-          <div class='card-body shadow-xl '>
+        <div className='card card-compact lg:w-96 md:w-96 w-[21.5rem] bg-base-100 shadow-xl'>
+          <div className='card-body shadow-xl '>
             <div className='flex items-center'>
-              <div class='avatar mt-[-75px]'>
-                <div class='w-20 rounded-full'>
+              <div className='avatar mt-[-75px]'>
+                <div className='w-20 rounded-full'>
                   <img
                     alt=''
                     src='https://api.lorem.space/image/face?hash=92310'
@@ -28,11 +28,11 @@ const Reviews = () => {
             </div>
           </div>
         </div>
-        <div class='card card-compact lg:w-96 md:w-96 w-[21.5rem] bg-base-100 shadow-xl'>
-          <div class='card-body shadow-xl '>
+        <div className='card card-compact lg:w-96 md:w-96 w-[21.5rem] bg-base-100 shadow-xl'>
+          <div className='card-body shadow-xl '>
             <div className='flex items-center'>
-              <div class='avatar mt-[-75px]'>
-                <div class='w-20 rounded-full'>
+              <div className='avatar mt-[-75px]'>
+                <div className='w-20 rounded-full'>
                   <img
                     alt=''
                     src='https://api.lorem.space/image/face?hash=92310'
@@ -51,11 +51,11 @@ const Reviews = () => {
             </div>
           </div>
         </div>
-        <div class='card card-compact lg:w-96 md:w-96 w-[21.5rem] bg-base-100 shadow-xl'>
-          <div class='card-body shadow-xl '>
+        <div className='card card-compact lg:w-96 md:w-96 w-[21.5rem] bg-base-100 shadow-xl'>
+          <div className='card-body shadow-xl '>
             <div className='flex items-center'>
-              <div class='avatar mt-[-75px]'>
-                <div class='w-20 rounded-full'>
+              <div className='avatar mt-[-75px]'>
+                <div className='w-20 rounded-full'>
                   <img
                     alt=''
                     src='https://api.lorem.space/image/face?hash=92310'

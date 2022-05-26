@@ -9,43 +9,43 @@ const BusinessSummary = () => {
         <span className='text-blue-400'>business</span>{" "}
         <span className='text-purple-400'>summary</span>
       </h1>
-      <div class='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mb-10 stats-vertical lg:w-full lg:stats-horizontal shadow'>
-        <div class='stat '>
-          <div class='stat-title '>
+      <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mb-10 stats-vertical lg:w-full lg:stats-horizontal shadow'>
+        <div className='stat '>
+          <div className='stat-title '>
             <FaFlag className='mx-auto text-2xl text-accent' />
           </div>
-          <div class='stat-value text-primary'>72</div>
-          <div class='stat-desc'>Countries</div>
+          <div className='stat-value text-primary'>72</div>
+          <div className='stat-desc'>Countries</div>
         </div>
 
-        <div class='stat '>
-          <div class='stat-title'>
+        <div className='stat '>
+          <div className='stat-title'>
             <AiOutlineDollarCircle className='text-accent mx-auto text-2xl' />
           </div>
-          <div class='stat-value text-primary'>
+          <div className='stat-value text-primary'>
             5M
             <span className='uppercase text-base-300 text-xs font-normal'>
               {" "}
               usd
             </span>{" "}
           </div>
-          <div class='stat-desc'>Revenue</div>
+          <div className='stat-desc'>Revenue</div>
         </div>
 
-        <div class='stat'>
-          <div class='stat-title'>
+        <div className='stat'>
+          <div className='stat-title'>
             <FaUserFriends className='text-accent mx-auto text-2xl' />
           </div>
-          <div class='stat-value text-primary'>4,200+</div>
-          <div class='stat-desc'>Users</div>
+          <div className='stat-value text-primary'>4,200+</div>
+          <div className='stat-desc'>Users</div>
         </div>
 
-        <div class='stat'>
-          <div class='stat-title'>
+        <div className='stat'>
+          <div className='stat-title'>
             <AiOutlineShoppingCart className='text-accent mx-auto text-2xl' />
           </div>
-          <div class='stat-value text-primary'>1M+</div>
-          <div class='stat-desc'>Total Order</div>
+          <div className='stat-value text-primary'>1M+</div>
+          <div className='stat-desc'>Total Order</div>
         </div>
       </div>
     </div>

@@ -45,16 +45,16 @@ const Login = () => {
     );
   }
   return (
-    <div class="bg-[url('/src/assets/images/bg-for-login.jpg')] hero lg:min-h-[90vh] md:min-h-[90vh] min-h-[70vh]">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div class="card-body flex flex-col border-opacity-50 lg:ml-[-7px] lg:w-[25rem] md:w-[25rem] w-[21.5rem]">
+    <div className="bg-[url('/src/assets/images/bg-for-login.jpg')] hero lg:min-h-[90vh] md:min-h-[90vh] min-h-[70vh]">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card-body flex flex-col border-opacity-50 lg:ml-[-7px] lg:w-[25rem] md:w-[25rem] w-[21.5rem]">
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="text-2xl text-primary">Login</h1>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Email</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Email</span>
                   </label>
                   <input
                     {...register("email", {
@@ -67,7 +67,7 @@ const Login = () => {
                     })}
                     type="email"
                     placeholder="email"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     required
                   />
                   <label htmlFor="email" className="label">
@@ -86,9 +86,9 @@ const Login = () => {
                   </label>
                   {passwordResetError}
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Password</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
                   </label>
                   <input
                     {...register("password", {
@@ -103,7 +103,7 @@ const Login = () => {
                     })}
                     type="password"
                     placeholder="password"
-                    class="input input-bordered"
+                    className="input input-bordered"
                     required
                   />
                   <label htmlFor="password" className="label">
@@ -121,21 +121,21 @@ const Login = () => {
                     )}
                   </label>
                   {logInError}
-                  <label class="label">
+                  <label className="label">
                     <Link
                       onClick={() => {
                         const email = getValues("email");
                         sendPasswordResetEmail(email);
                       }}
                       to={""}
-                      class="label-text-alt link link-hover"
+                      className="label-text-alt link link-hover"
                     >
                       Forgot password?
                     </Link>
                   </label>
                 </div>
-                <div class="form-control mt-6">
-                  <button type="submit" class="btn btn-primary">
+                <div className="form-control mt-6">
+                  <button type="submit" className="btn btn-primary">
                     Login
                   </button>
                   <h1 className="text-sm text-center mt-2">
@@ -152,7 +152,7 @@ const Login = () => {
                 </div>
               </form>
             </div>
-            <div class="divider ">OR</div>
+            <div className="divider ">OR</div>
             <button
               onClick={() => {
                 signInWithGoogle(register.email);

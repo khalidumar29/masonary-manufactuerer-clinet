@@ -10,7 +10,10 @@ import SignUp from "./Pages/SignUp/SignUp";
 import NotFound from "./Pages/NotFound/NotFound";
 import Blogs from "./Pages/Blogs/Blogs";
 import RequireAuth from "./Shared/RequireAuth/RequireAuth";
-
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
+import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <div className='lg:mx-8'>
@@ -20,6 +23,10 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signUp' element={<SignUp />}></Route>
         <Route path='/myprotfolio' element={<MyProtfolio />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}>
+          <Route index path='' element={<MyProfile />}></Route>
+          <Route path='orders' element={<MyOrders />}></Route>
+        </Route>
         <Route path='/blogs' element={<Blogs />}></Route>
         <Route
           path='/purchase/:id'
@@ -32,6 +39,7 @@ function App() {
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>
+      <Toaster />
     </div>
   );
 }

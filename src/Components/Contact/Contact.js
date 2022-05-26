@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div className='text-center py-10'>
       <h1 className='text-3xl'>Contact Us</h1>
-      <div class='card mx-auto lg:w-96 md:w-96 w-[21rem] bg-base-100 shadow-xl py-5 '>
+      <div className='card mx-auto lg:w-96 md:w-96 w-[21rem] bg-base-100 shadow-xl py-5 '>
         <div className='mx-auto w-80 text-left'>
           <div>
             <label htmlFor='firstName'>First Name</label> <br />
@@ -12,7 +12,7 @@ const Contact = () => {
               type='text'
               name='firstName'
               placeholder='Type here'
-              class='input input-bordered w-full max-w-xs'
+              className='input input-bordered w-full max-w-xs'
             />
           </div>
           <div className='mt-2'>
@@ -24,7 +24,7 @@ const Contact = () => {
               type='text'
               placeholder='Type here'
               name='lastName'
-              class='input input-bordered w-full max-w-xs'
+              className='input input-bordered w-full max-w-xs'
             />
           </div>
           <div className='mt-2'>
@@ -33,13 +33,13 @@ const Contact = () => {
               type='email'
               placeholder='Type here'
               name='lastName'
-              class='input input-bordered w-full max-w-xs'
+              className='input input-bordered w-full max-w-xs'
             />
           </div>
           <div className='mt-2'>
             <label htmlFor='lastName'>Your Message</label> <br />
             <textarea
-              class='textarea input-bordered w-full max-w-xs'
+              className='textarea input-bordered w-full max-w-xs'
               placeholder='message..'
             ></textarea>
           </div>

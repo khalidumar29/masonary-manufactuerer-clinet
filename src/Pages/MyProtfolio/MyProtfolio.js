@@ -3,11 +3,11 @@ import React from "react";
 const MyProtfolio = () => {
   return (
     <div>
-      <div class='hero min-h-screen '>
-        <div class='hero-content flex-col lg:flex-row items-start'>
+      <div className='hero min-h-screen '>
+        <div className='hero-content flex-col lg:flex-row items-start'>
           <img
             src={"https://i.ibb.co/4gSNxjZ/Untitled-1.png"}
-            class='max-w-sm  rounded-lg shadow-2xl'
+            className='max-w-sm  rounded-lg shadow-2xl'
             alt=''
           />
           <div className='lg:w-screen md:w-screen w-[90vw]'>
@@ -17,8 +17,8 @@ const MyProtfolio = () => {
             <h1 className='text-xl text-slate-400 pb-2'>
               Educational Qualfication
             </h1>
-            <div class='overflow-x-auto'>
-              <table class='table w-full'>
+            <div className='overflow-x-auto'>
+              <table className='table w-full'>
                 <thead className='lg:text-lg md:text-lg text-xs'>
                   <tr>
                     <th>Name Of Exam</th>
@@ -47,19 +47,47 @@ const MyProtfolio = () => {
           <div className='mt-5 w-full'>
             <h1 className='py-2 text-2xl capitalize'>skill</h1>
             <h1>HTML</h1>
-            <progress class='progress w-full' value='98' max='100'></progress>
+            <progress
+              className='progress w-full'
+              value='98'
+              max='100'
+            ></progress>
             <h1>CSS</h1>
-            <progress class='progress w-full' value='92' max='100'></progress>
+            <progress
+              className='progress w-full'
+              value='92'
+              max='100'
+            ></progress>
             <h1>JAVASCRIP</h1>
-            <progress class='progress w-full' value='70' max='100'></progress>
+            <progress
+              className='progress w-full'
+              value='70'
+              max='100'
+            ></progress>
             <h1>REACT</h1>
-            <progress class='progress w-full' value='70' max='100'></progress>
+            <progress
+              className='progress w-full'
+              value='70'
+              max='100'
+            ></progress>
             <h1>FIGMA</h1>
-            <progress class='progress w-full' value='95' max='100'></progress>
+            <progress
+              className='progress w-full'
+              value='95'
+              max='100'
+            ></progress>
             <h1>EXPRESS.js</h1>
-            <progress class='progress w-full' value='65' max='100'></progress>
+            <progress
+              className='progress w-full'
+              value='65'
+              max='100'
+            ></progress>
             <h1>MONGODB</h1>
-            <progress class='progress w-full' value='85' max='100'></progress>
+            <progress
+              className='progress w-full'
+              value='85'
+              max='100'
+            ></progress>
           </div>
         </div>
       </div>
