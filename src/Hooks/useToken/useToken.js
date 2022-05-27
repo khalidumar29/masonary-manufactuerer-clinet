@@ -4,7 +4,6 @@ const useToken = (user) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     const email = user?.user?.email;
-    console.log(email);
     const currentUser = { email };
     if (email) {
       fetch(`https://shielded-mesa-62585.herokuapp.com/user/${email}`, {

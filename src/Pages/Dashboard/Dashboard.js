@@ -36,7 +36,7 @@ const Dashboard = () => {
           <li>
             <Link to={"/dashboard"}>My Profile</Link>
           </li>
-          {admin && (
+          {!admin && (
             <>
               <li>
                 <Link to='orders'>My Orders</Link>{" "}
@@ -46,7 +46,7 @@ const Dashboard = () => {
               </li>
             </>
           )}
-          {!admin && (
+          {admin && (
             <>
               <li>
                 <Link to='manageproducts'>Manage Products</Link>{" "}
