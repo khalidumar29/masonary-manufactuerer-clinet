@@ -20,39 +20,39 @@ const AddAReview = () => {
       .then((data) => console.log(data));
   };
   return (
-    <div class='hero min-h-screen '>
-      <div class='hero-content flex-col lg:flex-row-reverse'>
-        <div class='text-center lg:text-left'>
-          <h1 class='text-5xl font-bold capitalize text-primary'>
+    <div className='hero min-h-screen '>
+      <div className='hero-content flex-col lg:flex-row-reverse'>
+        <div className='text-center lg:text-left'>
+          <h1 className='text-5xl font-bold capitalize text-primary'>
             Please add a review
           </h1>
         </div>
-        <div class='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
-          <form onSubmit={handleSubbmit} class='card-body'>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>Address</span>
+        <div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
+          <form onSubmit={handleSubbmit} className='card-body'>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Address</span>
               </label>
               <input
                 name='address'
-                class='input input-bordered w-full max-w-xs'
+                className='input input-bordered w-full max-w-xs'
                 placeholder='write address...'
                 required
               ></input>
             </div>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>Review</span>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Review</span>
               </label>
               <textarea
                 name='message'
-                class='textarea textarea-bordered'
+                className='textarea textarea-bordered'
                 placeholder='write message...'
                 required
               ></textarea>
             </div>
-            <div class='form-control mt-6'>
-              <button type='submit' class='btn btn-primary'>
+            <div className='form-control mt-6'>
+              <button type='submit' className='btn btn-primary'>
                 Submit
               </button>
             </div>

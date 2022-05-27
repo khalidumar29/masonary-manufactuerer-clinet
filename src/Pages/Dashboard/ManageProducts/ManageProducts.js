@@ -13,8 +13,8 @@ const ManageProducts = () => {
   return (
     <div>
       <h1 className='text-2xl text-primary py-2'>Manage Product</h1>
-      <div class='overflow-x-auto'>
-        <table class='table w-[93vw]'>
+      <div className='overflow-x-auto'>
+        <table className='table w-[93vw]'>
           <thead>
             <tr>
               <th></th>

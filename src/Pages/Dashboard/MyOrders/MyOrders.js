@@ -26,8 +26,8 @@ const MyOrders = () => {
       });
   };
   return (
-    <div class='overflow-x-auto '>
-      <table class='table table-compact w-[95%] mt-8'>
+    <div className='overflow-x-auto '>
+      <table className='table table-compact w-[95%] mt-8'>
         <thead>
           <tr>
             <th></th>
@@ -60,7 +60,7 @@ const MyOrders = () => {
                 {!order.paid && (
                   <label
                     onClick={() => handleDelete(order._id)}
-                    for='my-modal-30'
+                    htmlFor='my-modal-30'
                     className='btn btn-xs btn-error ml-3'
                   >
                     cancel
@@ -73,16 +73,16 @@ const MyOrders = () => {
       </table>
       {/* <!-- The button to open modal --> */}
       {/* <!-- Put this part before </body> tag --> */}
-      <input type='checkbox' id='my-modal-3' class='modal-toggle' />
-      <div class='modal'>
-        <div class='modal-box relative'>
+      <input type='checkbox' id='my-modal-3' className='modal-toggle' />
+      <div className='modal'>
+        <div className='modal-box relative'>
           <label
-            for='my-modal-3'
-            class='btn btn-sm btn-circle absolute right-2 top-2'
+            htmlFor='my-modal-3'
+            className='btn btn-sm btn-circle absolute right-2 top-2'
           >
             ✕
           </label>
-          <h3 class='text-2xl font-bold'>Are You Sure</h3>
+          <h3 className='text-2xl font-bold'>Are You Sure</h3>
           <button className='btn btn-error btn-outline'>ok</button>
         </div>
       </div>

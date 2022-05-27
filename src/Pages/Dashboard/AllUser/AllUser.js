@@ -39,8 +39,8 @@ const AllUser = () => {
   return (
     <div>
       <h1 className='text-center text-2xl text-primary my-4'>All User</h1>
-      <div class='overflow-x-auto'>
-        <table class='table md:w-[90vw]'>
+      <div className='overflow-x-auto'>
+        <table className='table md:w-[90vw]'>
           <thead>
             <tr>
               <th></th>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import useProductDetails from "../../Hooks/ProductDetails/useProductDetails";
 
@@ -32,7 +32,7 @@ const Purchase = () => {
   } else {
     error = true;
   }
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const userName = e.target.name.value;
@@ -50,7 +50,6 @@ const Purchase = () => {
       orderPrice,
       address,
     };
-    console.log(order);
     fetch("https://shielded-mesa-62585.herokuapp.com/order", {
       method: "POST",
       headers: {
@@ -59,7 +58,11 @@ const Purchase = () => {
       body: JSON.stringify(order),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.insertedId) {
+          navigate("/dashboard/orders");
+        }
+      });
   };
   return (
     <div>

@@ -20,9 +20,9 @@ const Payment = () => {
   }
   return (
     <div className=''>
-      <div class='card py-2 card-compact w-96 bg-base-100 shadow-xl'>
-        <div class='card-body'>
-          <h2 class='card-title'>{order.name}</h2>
+      <div className='card py-2 card-compact w-96 bg-base-100 shadow-xl'>
+        <div className='card-body'>
+          <h2 className='card-title'>{order.name}</h2>
           <p className='capitalize font-bold'>
             Order Quantity: {order.orderQuantity}
           </p>
@@ -35,8 +35,8 @@ const Payment = () => {
           <p className='capitalize font-bold'>phone number: {order.phone}</p>
         </div>
       </div>
-      <div class='card mt-10 card-compact w-96 bg-base-100 shadow-lg'>
-        <div class='card-body'>
+      <div className='card mt-10 card-compact w-96 bg-base-100 shadow-lg'>
+        <div className='card-body'>
           <Elements stripe={stripePromis}>
             <CheckOutForm order={order} />
           </Elements>

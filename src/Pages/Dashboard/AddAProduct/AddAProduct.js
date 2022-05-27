@@ -30,86 +30,86 @@ const AddAProduct = () => {
       });
   };
   return (
-    <div class='hero '>
-      <div class='hero-content flex-col '>
-        <div class='text-center lg:text-left'>
-          <h1 class='text-5xl font-bold'>Add Products</h1>
+    <div className='hero '>
+      <div className='hero-content flex-col '>
+        <div className='text-center lg:text-left'>
+          <h1 className='text-5xl font-bold'>Add Products</h1>
         </div>
-        <div class='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
-          <form onSubmit={handleSubmit} class='card-body'>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>Name</span>
+        <div className='card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'>
+          <form onSubmit={handleSubmit} className='card-body'>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Name</span>
               </label>
               <input
                 type='text'
                 name='name'
                 placeholder='name'
-                class='input input-bordered'
+                className='input input-bordered'
                 required
               />
             </div>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>Price</span>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Price</span>
               </label>
               <input
                 type='text'
                 name='price'
                 placeholder='price'
-                class='input input-bordered'
+                className='input input-bordered'
                 required
               />
             </div>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>image</span>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>image</span>
               </label>
               <input
                 type='text'
                 name='img'
                 placeholder='url'
-                class='input input-bordered'
+                className='input input-bordered'
               />
             </div>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>Quantity</span>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Quantity</span>
               </label>
               <input
                 type='text'
                 name='quantity'
                 placeholder='quantity'
-                class='input input-bordered'
+                className='input input-bordered'
                 required
               />
             </div>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>Minimum Order Quantity</span>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Minimum Order Quantity</span>
               </label>
               <input
                 type='text'
                 name='minQuantity'
                 placeholder='minimum quantity'
-                class='input input-bordered'
+                className='input input-bordered'
                 required
               />
             </div>
-            <div class='form-control'>
-              <label class='label'>
-                <span class='label-text'>Description</span>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Description</span>
               </label>
               <textarea
                 type='text'
                 name='des'
                 placeholder='minimum quantity'
-                class='textarea textarea-border
+                className='textarea textarea-border
                 requireded'
               />
             </div>
-            <div class='form-control mt-6'>
-              <button type='submit' class='btn btn-primary'>
+            <div className='form-control mt-6'>
+              <button type='submit' className='btn btn-primary'>
                 Add
               </button>
             </div>
