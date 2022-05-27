@@ -36,7 +36,7 @@ const Dashboard = () => {
             <Link to='orders'>My Orders</Link>{" "}
           </li>
           <li>
-            <Link to='dashboard/review'>Add A Review</Link>{" "}
+            <Link to='review'>Add A Review</Link>{" "}
           </li>
         </ul>
       </div>

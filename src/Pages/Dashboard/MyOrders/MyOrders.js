@@ -5,7 +5,6 @@ import auth from "../../../firebase.init";
 const MyOrders = () => {
   const [myOrder, setMyOrder] = useState([]);
   const [user] = useAuthState(auth);
-  const [agree, setAgree] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/order`)
@@ -41,7 +40,7 @@ const MyOrders = () => {
             <tr key={order._id}>
               <th>{index + 1}</th>
               <td>{order.productName}</td>
-              <td>dhaka,rajbari</td>
+              <td>{order.adress}</td>
               <td>{order.orderPrice}</td>
               <td>{order.orderQuantity}</td>
               <td>
@@ -70,12 +69,7 @@ const MyOrders = () => {
             ✕
           </label>
           <h3 class='text-2xl font-bold'>Are You Sure</h3>
-          <button
-            onClick={() => setAgree(true)}
-            className='btn btn-error btn-outline'
-          >
-            ok
-          </button>
+          <button className='btn btn-error btn-outline'>ok</button>
         </div>
       </div>
     </div>
