@@ -15,6 +15,8 @@ import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import { Toaster } from "react-hot-toast";
 import AddAReview from "./Pages/Dashboard/AddAReview/AddAReview";
+import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
+import AddAProduct from "./Pages/Dashboard/AddAProduct/AddAProduct";
 function App() {
   return (
     <div className='lg:mx-8'>
@@ -28,6 +30,8 @@ function App() {
           <Route index path='' element={<MyProfile />}></Route>
           <Route path='orders' element={<MyOrders />}></Route>
           <Route path='review' element={<AddAReview />}></Route>
+          <Route path='manageproducts' element={<ManageProducts />}></Route>
+          <Route path='AddAProduct' element={<AddAProduct />}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs />}></Route>
         <Route
