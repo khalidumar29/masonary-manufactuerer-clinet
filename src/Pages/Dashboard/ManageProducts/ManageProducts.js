@@ -3,7 +3,9 @@ import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
 const ManageProducts = () => {
   const { isLoading, data } = useQuery("product", () =>
-    fetch("http://localhost:5000/products").then((res) => res.json())
+    fetch("https://shielded-mesa-62585.herokuapp.com/products").then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading />;

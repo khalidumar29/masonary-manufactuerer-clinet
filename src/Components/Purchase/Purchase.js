@@ -51,7 +51,7 @@ const Purchase = () => {
       address,
     };
     console.log(order);
-    fetch("http://localhost:5000/order", {
+    fetch("https://shielded-mesa-62585.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

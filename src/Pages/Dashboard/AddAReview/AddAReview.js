@@ -9,7 +9,7 @@ const AddAReview = () => {
     const message = e.target.message.value;
     const address = e.target.address.value;
     const review = { message, address, name };
-    fetch("http://localhost:5000/review", {
+    fetch("https://shielded-mesa-62585.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

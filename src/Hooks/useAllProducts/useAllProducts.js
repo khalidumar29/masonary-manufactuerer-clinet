@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 const useAllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://shielded-mesa-62585.herokuapp.com/products", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, [allProducts]);

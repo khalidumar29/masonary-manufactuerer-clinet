@@ -12,7 +12,7 @@ const AddAProduct = () => {
     const des = e.target.des.value;
     const product = { name, price, img, quantity, minQuantity, des };
     console.log(product);
-    fetch("http://localhost:5000/products", {
+    fetch("https://shielded-mesa-62585.herokuapp.com/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

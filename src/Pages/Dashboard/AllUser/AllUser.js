@@ -14,14 +14,16 @@ const AllUser = () => {
     data: users,
     refetch,
   } = useQuery("user", () =>
-    fetch("http://localhost:5000/user").then((res) => res.json())
+    fetch("https://shielded-mesa-62585.herokuapp.com/user").then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading />;
   }
   const makeAdmin = (email) => {
     console.log(email);
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://shielded-mesa-62585.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

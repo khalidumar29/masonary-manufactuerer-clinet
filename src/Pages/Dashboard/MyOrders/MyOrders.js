@@ -8,7 +8,7 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order`)
+    fetch(`https://shielded-mesa-62585.herokuapp.com/order`)
       .then((res) => res.json())
       .then((data) => {
         const filter = data.filter((d) => d.email === user.email);
@@ -17,7 +17,9 @@ const MyOrders = () => {
   }, [user, myOrder]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, { method: "DELETE" })
+    fetch(`https://shielded-mesa-62585.herokuapp.com/order/${id}`, {
+      method: "DELETE",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -33,7 +35,7 @@ const MyOrders = () => {
             <th>Address</th>
             <th>price</th>
             <th>Quantity</th>
-            <th></th>
+            <th>Trxid & Payment Status</th>
           </tr>
         </thead>
         <tbody>
@@ -45,19 +47,25 @@ const MyOrders = () => {
               <td>{order.orderPrice}</td>
               <td>{order.orderQuantity}</td>
               <td>
-                <Link
-                  to={`/order/payment/${order._id}`}
-                  className='btn btn-xs btn-success'
-                >
-                  pay
-                </Link>
-                <label
-                  onClick={() => handleDelete(order._id)}
-                  for='my-modal-30'
-                  className='btn btn-xs btn-error ml-3'
-                >
-                  cancel
-                </label>
+                {order.paid ? (
+                  <span className='text-xs text-success'>{order.trxid}</span>
+                ) : (
+                  <Link
+                    to={`/dashboard/payment/${order._id}`}
+                    className='btn btn-xs btn-success'
+                  >
+                    pay
+                  </Link>
+                )}
+                {!order.paid && (
+                  <label
+                    onClick={() => handleDelete(order._id)}
+                    for='my-modal-30'
+                    className='btn btn-xs btn-error ml-3'
+                  >
+                    cancel
+                  </label>
+                )}
               </td>
             </tr>
           ))}

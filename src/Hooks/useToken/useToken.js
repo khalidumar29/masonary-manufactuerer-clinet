@@ -7,7 +7,7 @@ const useToken = (user) => {
     console.log(email);
     const currentUser = { email };
     if (email) {
-      fetch(`http://localhost:5000/user/${email}`, {
+      fetch(`https://shielded-mesa-62585.herokuapp.com/user/${email}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(currentUser),

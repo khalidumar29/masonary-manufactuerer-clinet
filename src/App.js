@@ -34,10 +34,10 @@ function App() {
           <Route path='review' element={<AddAReview />}></Route>
           <Route path='manageproducts' element={<ManageProducts />}></Route>
           <Route path='AddAProduct' element={<AddAProduct />}></Route>
+          <Route path='payment/:id' element={<Payment />}></Route>
           <Route path='alluser' element={<AllUser />}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs />}></Route>
-        <Route path='/order/payment/:id' element={<Payment />}></Route>
         <Route
           path='/purchase/:id'
           element={
