@@ -6,7 +6,6 @@ const Reviews = () => {
   const { isLoading, data } = useQuery("review", () =>
     fetch("http://localhost:5000/review").then((res) => res.json())
   );
-  console.log(data);
   if (isLoading) {
     return <Loading />;
   }

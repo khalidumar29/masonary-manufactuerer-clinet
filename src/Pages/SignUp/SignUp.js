@@ -19,7 +19,6 @@ const SignUp = () => {
   const [token] = useToken(gUser || eUser);
   const {
     register,
-
     formState: { errors },
     handleSubmit,
   } = useForm();
