@@ -1,9 +1,14 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { useQuery } from "react-query";
+import auth from "../../../firebase.init";
+import UseAdmin from "../../../Hooks/useAdmin/useAdmin";
 import Loading from "../../../Shared/Loading/Loading";
 
 const AllUser = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = UseAdmin(user);
   const {
     isLoading,
     data: users,
@@ -47,12 +52,14 @@ const AllUser = () => {
                 <th>{index + 1}</th>
                 <td>{user.email}</td>
                 <td>
-                  <button
-                    onClick={() => makeAdmin(user.email)}
-                    className='btn btn-xs'
-                  >
-                    make admin
-                  </button>
+                  {!admin && (
+                    <button
+                      onClick={() => makeAdmin(user.email)}
+                      className='btn btn-xs'
+                    >
+                      make admin
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}

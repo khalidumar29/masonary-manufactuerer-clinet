@@ -18,6 +18,7 @@ import AddAReview from "./Pages/Dashboard/AddAReview/AddAReview";
 import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
 import AddAProduct from "./Pages/Dashboard/AddAProduct/AddAProduct";
 import AllUser from "./Pages/Dashboard/AllUser/AllUser";
+import Payment from "./Shared/Payment/Payment";
 function App() {
   return (
     <div className='lg:mx-8'>
@@ -36,6 +37,7 @@ function App() {
           <Route path='alluser' element={<AllUser />}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs />}></Route>
+        <Route path='/order/payment/:id' element={<Payment />}></Route>
         <Route
           path='/purchase/:id'
           element={

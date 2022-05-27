@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const MyOrders = () => {
@@ -44,7 +45,12 @@ const MyOrders = () => {
               <td>{order.orderPrice}</td>
               <td>{order.orderQuantity}</td>
               <td>
-                <button className='btn btn-xs btn-success'>pay</button>
+                <Link
+                  to={`/order/payment/${order._id}`}
+                  className='btn btn-xs btn-success'
+                >
+                  pay
+                </Link>
                 <label
                   onClick={() => handleDelete(order._id)}
                   for='my-modal-30'
