@@ -34,6 +34,7 @@ const Reviews = () => {
                 <div className='ml-4 text-left'>
                   <h1 className='text-xl font-semibold'>{d.name}</h1>
                   <h1 className='py-2'>{d.address}</h1>
+                  <h1 className='py-2 font-bold'>Ratings: {d.ratings}</h1>
                   <p className='text-slate-800'>{d.message}</p>
                 </div>
               </div>

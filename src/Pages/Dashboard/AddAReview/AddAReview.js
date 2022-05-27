@@ -7,8 +7,9 @@ const AddAReview = () => {
     e.preventDefault();
     const name = user.displayName;
     const message = e.target.message.value;
+    const ratings = e.target.ratings.value;
     const address = e.target.address.value;
-    const review = { message, address, name };
+    const review = { message, ratings, address, name };
     fetch("https://shielded-mesa-62585.herokuapp.com/review", {
       method: "POST",
       headers: {
@@ -37,6 +38,18 @@ const AddAReview = () => {
                 name='address'
                 className='input input-bordered w-full max-w-xs'
                 placeholder='write address...'
+                required
+              ></input>
+            </div>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Ratings</span>
+              </label>
+              <input
+                type='number'
+                name='ratings'
+                className='input input-bordered w-full max-w-xs'
+                placeholder='write ratings...'
                 required
               ></input>
             </div>
