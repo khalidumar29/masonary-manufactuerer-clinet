@@ -4,7 +4,7 @@ import Loading from "../../Shared/Loading/Loading";
 
 const Reviews = () => {
   const { isLoading, data } = useQuery("review", () =>
-    fetch("https://shielded-mesa-62585.herokuapp.com/review").then((res) =>
+    fetch("https://masonary-manufactuer.herokuapp.com/review").then((res) =>
       res.json()
     )
   );

@@ -8,7 +8,7 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`https://shielded-mesa-62585.herokuapp.com/order`)
+    fetch(`https://masonary-manufactuer.herokuapp.com/review/order`)
       .then((res) => res.json())
       .then((data) => {
         const filter = data.filter((d) => d.email === user.email);
@@ -17,7 +17,7 @@ const MyOrders = () => {
   }, [user, myOrder]);
 
   const handleDelete = (id) => {
-    fetch(`https://shielded-mesa-62585.herokuapp.com/order/${id}`, {
+    fetch(`https://masonary-manufactuer.herokuapp.com/review/order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

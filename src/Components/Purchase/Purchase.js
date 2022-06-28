@@ -50,7 +50,7 @@ const Purchase = () => {
       orderPrice,
       address,
     };
-    fetch("https://shielded-mesa-62585.herokuapp.com/order", {
+    fetch("https://masonary-manufactuer.herokuapp.com/review/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

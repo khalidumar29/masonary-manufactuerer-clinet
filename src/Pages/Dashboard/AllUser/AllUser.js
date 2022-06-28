@@ -14,8 +14,8 @@ const AllUser = () => {
     data: users,
     refetch,
   } = useQuery("user", () =>
-    fetch("https://shielded-mesa-62585.herokuapp.com/user").then((res) =>
-      res.json()
+    fetch("https://masonary-manufactuer.herokuapp.com/review/user").then(
+      (res) => res.json()
     )
   );
   if (isLoading) {
@@ -23,12 +23,15 @@ const AllUser = () => {
   }
   const makeAdmin = (email) => {
     console.log(email);
-    fetch(`https://shielded-mesa-62585.herokuapp.com/user/admin/${email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://masonary-manufactuer.herokuapp.com/review/user/admin/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json)
       .then((data) => {
         refetch();

@@ -10,7 +10,7 @@ const AddAReview = () => {
     const ratings = e.target.ratings.value;
     const address = e.target.address.value;
     const review = { message, ratings, address, name };
-    fetch("https://shielded-mesa-62585.herokuapp.com/review", {
+    fetch("https://masonary-manufactuer.herokuapp.com/review/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

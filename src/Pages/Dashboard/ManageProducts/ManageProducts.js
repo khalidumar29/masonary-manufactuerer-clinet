@@ -3,8 +3,8 @@ import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
 const ManageProducts = () => {
   const { isLoading, data } = useQuery("product", () =>
-    fetch("https://shielded-mesa-62585.herokuapp.com/products").then((res) =>
-      res.json()
+    fetch("https://masonary-manufactuer.herokuapp.com/review/products").then(
+      (res) => res.json()
     )
   );
   if (isLoading) {

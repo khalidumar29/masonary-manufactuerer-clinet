@@ -12,7 +12,7 @@ const AddAProduct = () => {
     const des = e.target.des.value;
     const product = { name, price, img, quantity, minQuantity, des };
     console.log(product);
-    fetch("https://shielded-mesa-62585.herokuapp.com/products", {
+    fetch("https://masonary-manufactuer.herokuapp.com/review/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

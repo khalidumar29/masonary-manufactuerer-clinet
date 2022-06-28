@@ -10,7 +10,7 @@ const stripePromis = loadStripe(
 );
 const Payment = () => {
   const { id } = useParams();
-  const url = `https://shielded-mesa-62585.herokuapp.com/order/${id}`;
+  const url = `https://masonary-manufactuer.herokuapp.com/review/order/${id}`;
   const { data: order, isLoading } = useQuery(["order", id], () =>
     fetch(url).then((res) => res.json())
   );
