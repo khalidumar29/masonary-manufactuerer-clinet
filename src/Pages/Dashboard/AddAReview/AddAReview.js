@@ -10,7 +10,7 @@ const AddAReview = () => {
     const ratings = e.target.ratings.value;
     const address = e.target.address.value;
     const review = { message, ratings, address, name };
-    fetch("https://masonary-manufactuer.herokuapp.com/review/review", {
+    fetch("https://masonary-server.vercel.app/review/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

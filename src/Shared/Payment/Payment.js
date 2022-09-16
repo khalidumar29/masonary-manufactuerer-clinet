@@ -10,7 +10,7 @@ const stripePromis = loadStripe(
 );
 const Payment = () => {
   const { id } = useParams();
-  const url = `https://masonary-manufactuer.herokuapp.com/review/order/${id}`;
+  const url = `https://masonary-server.vercel.app/review/order/${id}`;
   const { data: order, isLoading } = useQuery(["order", id], () =>
     fetch(url).then((res) => res.json())
   );

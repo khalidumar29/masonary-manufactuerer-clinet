@@ -50,7 +50,7 @@ const Purchase = () => {
       orderPrice,
       address,
     };
-    fetch("https://masonary-manufactuer.herokuapp.com/review/order", {
+    fetch("https://masonary-server.vercel.app/review/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -13,16 +13,13 @@ const CheckOutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { _id, productName, email, orderPrice, orderQuantity, address } = order;
   useEffect(() => {
-    fetch(
-      "https://masonary-manufactuer.herokuapp.com/review/create-payment-intent",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ orderPrice }),
-      }
-    )
+    fetch("https://masonary-server.vercel.app/review/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ orderPrice }),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -76,7 +73,7 @@ const CheckOutForm = ({ order }) => {
         appointment: _id,
         trxid: paymentIntent.id,
       };
-      fetch(`https://masonary-manufactuer.herokuapp.com/review/order/${_id}`, {
+      fetch(`https://masonary-server.vercel.app/review/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
