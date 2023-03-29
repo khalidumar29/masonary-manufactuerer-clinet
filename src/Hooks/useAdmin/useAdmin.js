@@ -6,7 +6,7 @@ const UseAdmin = (user) => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://masonary-server.vercel.app/review/admin/${email}`, {
+      fetch(`https://masonary-server.onrender.com/review/admin/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

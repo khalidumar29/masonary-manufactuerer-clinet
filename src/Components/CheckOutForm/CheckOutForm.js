@@ -13,7 +13,7 @@ const CheckOutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { _id, productName, email, orderPrice, orderQuantity, address } = order;
   useEffect(() => {
-    fetch("https://masonary-server.vercel.app/review/create-payment-intent", {
+    fetch("https://masonary-server.onrender.com/review/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,16 +49,18 @@ const CheckOutForm = ({ order }) => {
     setpaymentSuccess("");
 
     /** confirm card payment */
-    const { paymentIntent, error: itentError } =
-      await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-          billing_details: {
-            name: productName,
-            email: email,
-          },
+    const {
+      paymentIntent,
+      error: itentError,
+    } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: productName,
+          email: email,
         },
-      });
+      },
+    });
     if (itentError) {
       setCardError(itentError.message);
       setprocessing(false);
@@ -73,7 +75,7 @@ const CheckOutForm = ({ order }) => {
         appointment: _id,
         trxid: paymentIntent.id,
       };
-      fetch(`https://masonary-server.vercel.app/review/order/${_id}`, {
+      fetch(`https://masonary-server.onrender.com/review/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

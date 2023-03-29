@@ -12,7 +12,7 @@ const AddAProduct = () => {
     const des = e.target.des.value;
     const product = { name, price, img, quantity, minQuantity, des };
     console.log(product);
-    fetch("https://masonary-server.vercel.app/review/products", {
+    fetch("https://masonary-server.onrender.com/review/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

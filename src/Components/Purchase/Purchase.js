@@ -50,7 +50,7 @@ const Purchase = () => {
       orderPrice,
       address,
     };
-    fetch("https://masonary-server.vercel.app/review/order", {
+    fetch("https://masonary-server.onrender.com/review/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

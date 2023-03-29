@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
 const ManageProducts = () => {
   const { isLoading, data } = useQuery("product", () =>
-    fetch("https://masonary-server.vercel.app/review/products").then((res) =>
+    fetch("https://masonary-server.onrender.com/review/products").then((res) =>
       res.json()
     )
   );

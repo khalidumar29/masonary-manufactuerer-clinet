@@ -4,7 +4,9 @@ import Loading from "../../Shared/Loading/Loading";
 
 const Reviews = () => {
   const { isLoading, data } = useQuery("review", () =>
-    fetch("https://masonary-server.vercel.app/review").then((res) => res.json())
+    fetch("https://masonary-server.onrender.com/review").then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading />;
@@ -14,7 +16,7 @@ const Reviews = () => {
     <div className='text-center  py-10'>
       <h1 className='pb-10 text-3xl'>customer reviews</h1>
       <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6'>
-        {data.map((d) => (
+        {data?.map((d) => (
           <div
             key={d._id}
             className='card card-compact lg:w-96 md:w-96 w-[21.5rem] bg-base-100 shadow-xl'

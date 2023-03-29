@@ -8,7 +8,7 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`https://masonary-server.vercel.app/review/order`)
+    fetch(`https://masonary-server.onrender.com/review/order`)
       .then((res) => res.json())
       .then((data) => {
         const filter = data.filter((d) => d.email === user.email);
@@ -17,7 +17,7 @@ const MyOrders = () => {
   }, [user, myOrder]);
 
   const handleDelete = (id) => {
-    fetch(`https://masonary-server.vercel.app/review/order/${id}`, {
+    fetch(`https://masonary-server.onrender.com/review/order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

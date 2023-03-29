@@ -9,12 +9,8 @@ import Loading from "../../../Shared/Loading/Loading";
 const AllUser = () => {
   const [user] = useAuthState(auth);
   const [admin] = UseAdmin(user);
-  const {
-    isLoading,
-    data: users,
-    refetch,
-  } = useQuery("user", () =>
-    fetch("https://masonary-server.vercel.app/review/user").then((res) =>
+  const { isLoading, data: users, refetch } = useQuery("user", () =>
+    fetch("https://masonary-server.onrender.com/review/user").then((res) =>
       res.json()
     )
   );
@@ -23,7 +19,7 @@ const AllUser = () => {
   }
   const makeAdmin = (email) => {
     console.log(email);
-    fetch(`https://masonary-server.vercel.app/review/user/admin/${email}`, {
+    fetch(`https://masonary-server.onrender.com/review/user/admin/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
